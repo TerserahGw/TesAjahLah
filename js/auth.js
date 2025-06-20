@@ -5,15 +5,15 @@ document.addEventListener('DOMContentLoaded', () => {
     authSwitches.forEach(switchBtn => {
         switchBtn.addEventListener('click', () => {
             const tab = switchBtn.getAttribute('data-tab');
-            
+        
             authSwitches.forEach(btn => btn.classList.remove('active'));
             authForms.forEach(form => form.classList.remove('active'));
-            
+        
             switchBtn.classList.add('active');
             document.querySelector(`.auth-form[data-tab="${tab}"]`).classList.add('active');
         });
     });
-    
+
     const showPasswordBtns = document.querySelectorAll('.show-password');
     showPasswordBtns.forEach(btn => {
         btn.addEventListener('click', () => {
