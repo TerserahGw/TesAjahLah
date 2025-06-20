@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatApp | Friends</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body class="friend-list-page">
+    <header class="app-header">
+        <button class="back-btn" id="backBtn"><i class="fas fa-arrow-left"></i></button>
+        <h1>Friends</h1>
+        <button class="add-btn" id="addFriendBtn"><i class="fas fa-user-plus"></i></button>
+    </header>
+    
+    <main class="friend-list-main">
+        <div class="search-container">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search friends...">
+            </div>
+        </div>
+        
+        <div class="friend-list-container">
+            <div class="section-title">Online</div>
+            <div class="friend-list online-list" id="onlineFriends"></div>
+            
+            <div class="section-title">Offline</div>
+            <div class="friend-list offline-list" id="offlineFriends"></div>
+        </div>
+    </main>
+    
+    <div class="side-menu" id="sideMenu">
+        <div class="menu-header">
+            <div class="profile-pic-medium"></div>
+            <h3 id="menuUsername">Username</h3>
+            <button class="close-menu" id="closeMenu"><i class="fas fa-times"></i></button>
+        </div>
+        
+        <nav class="menu-nav">
+            <a href="home.html" class="menu-item"><i class="fas fa-home"></i> Home</a>
+            <a href="#" class="menu-item" id="groupsMenuItem"><i class="fas fa-users"></i> Groups</a>
+            <div class="group-list-menu" id="groupListMenu"></div>
+            <a href="#" class="menu-item" id="createGroupBtn"><i class="fas fa-plus-circle"></i> Create Group</a>
+        </nav>
+        
+        <div class="menu-footer">
+            <a href="#" class="menu-item" id="settingsMenuItem"><i class="fas fa-cog"></i> Settings</a>
+            <a href="#" class="menu-item" id="logoutMenuItem"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </div>
+    
+    <div class="modal" id="addFriendModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Add Friend</h2>
+            <div class="tab-container">
+                <button class="tab-btn active" data-tab="username">By Username</button>
+                <button class="tab-btn" data-tab="invite">By Invite Code</button>
+            </div>
+            
+            <div class="tab-content active" id="usernameTab">
+                <div class="form-group">
+                    <input type="text" id="friendUsername" placeholder="Enter username">
+                </div>
+                <button class="btn btn-primary" id="searchByUsernameBtn">Search</button>
+            </div>
+            
+            <div class="tab-content" id="inviteTab">
+                <div class="form-group">
+                    <input type="text" id="friendInviteCode" placeholder="Enter invite code (XXXX-XXXX)">
+                </div>
+                <button class="btn btn-primary" id="searchByInviteBtn">Search</button>
+            </div>
+            
+            <div class="search-results" id="friendSearchResults"></div>
+        </div>
+    </div>
+    
+    <div class="tutorial-overlay" id="tutorialOverlay">
+        <div class="tutorial-content">
+            <h3>Friends List</h3>
+            <p id="tutorialText">Tap on a friend to start chatting</p>
+            <div class="tutorial-buttons">
+                <button class="btn btn-secondary" id="skipTutorialBtn">Skip Tutorial</button>
+                <button class="btn btn-primary" id="nextTutorialBtn">Next</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/utils.js"></script>
+    <script src="js/friends.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/tutorial.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatApp | Home</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body class="home-page">
+    <header class="app-header">
+        <button class="menu-btn" id="menuBtn"><i class="fas fa-bars"></i></button>
+        <h1>ChatApp</h1>
+        <button class="profile-btn" id="profileBtn"><div class="profile-pic-small"></div></button>
+    </header>
+    
+    <main class="home-main">
+        <div class="home-card friends-card" id="friendsCard">
+            <div class="card-icon"><i class="fas fa-user-friends"></i></div>
+            <h2>Friends</h2>
+            <p>Chat with your friends</p>
+        </div>
+        
+        <div class="home-card groups-card" id="groupsCard">
+            <div class="card-icon"><i class="fas fa-users"></i></div>
+            <h2>Groups</h2>
+            <p>Join or create groups</p>
+        </div>
+        
+        <div class="home-card invite-card" id="inviteCard">
+            <div class="card-icon"><i class="fas fa-share-alt"></i></div>
+            <h2>Invite Friends</h2>
+            <p>Share your invite code</p>
+        </div>
+    </main>
+    
+    <div class="side-menu" id="sideMenu">
+        <div class="menu-header">
+            <div class="profile-pic-medium"></div>
+            <h3 id="menuUsername">Username</h3>
+            <button class="close-menu" id="closeMenu"><i class="fas fa-times"></i></button>
+        </div>
+        
+        <nav class="menu-nav">
+            <a href="friend-list.html" class="menu-item"><i class="fas fa-user-friends"></i> Friends</a>
+            <a href="#" class="menu-item" id="groupsMenuItem"><i class="fas fa-users"></i> Groups</a>
+            <div class="group-list-menu" id="groupListMenu"></div>
+            <a href="#" class="menu-item" id="createGroupBtn"><i class="fas fa-plus-circle"></i> Create Group</a>
+        </nav>
+        
+        <div class="menu-footer">
+            <a href="#" class="menu-item" id="settingsMenuItem"><i class="fas fa-cog"></i> Settings</a>
+            <a href="#" class="menu-item" id="logoutMenuItem"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </div>
+    
+    <div class="profile-menu" id="profileMenu">
+        <div class="profile-menu-header">
+            <div class="profile-pic-large"></div>
+            <h3 id="profileMenuUsername">Username</h3>
+            <button class="close-profile-menu" id="closeProfileMenu"><i class="fas fa-times"></i></button>
+        </div>
+        
+        <div class="profile-menu-content">
+            <div class="profile-menu-item"><i class="fas fa-user-edit"></i><span>Edit Profile</span></div>
+            <div class="profile-menu-item">
+                <i class="fas fa-share-alt"></i>
+                <span>My Invite Code: <span id="userInviteCode">XXXX-XXXX</span></span>
+                <button class="copy-btn" id="copyInviteBtn"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="createGroupModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Create Group</h2>
+            <form id="createGroupForm">
+                <div class="form-group">
+                    <label for="groupName">Group Name</label>
+                    <input type="text" id="groupName" required>
+                </div>
+                <div class="form-group">
+                    <label for="groupDescription">Description</label>
+                    <textarea id="groupDescription"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="groupMaxUsers">Max Users</label>
+                    <select id="groupMaxUsers">
+                        <option value="8">8</option>
+                        <option value="16">16</option>
+                        <option value="32">32</option>
+                        <option value="64">64</option>
+                        <option value="128">128</option>
+                        <option value="256">256</option>
+                        <option value="512">512</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Group Photo</label>
+                    <div class="upload-btn-container">
+                        <button type="button" class="btn btn-secondary" id="uploadGroupPhotoBtn"><i class="fas fa-camera"></i> Choose Photo</button>
+                        <input type="file" id="groupPhotoInput" accept="image/*" style="display: none;">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Create Group</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="modal" id="inviteModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Your Invite Code</h2>
+            <div class="invite-code-display">
+                <span id="inviteCodeDisplay">XXXX-XXXX</span>
+                <button class="copy-btn" id="copyInviteCodeBtn"><i class="fas fa-copy"></i> Copy</button>
+            </div>
+            <p class="invite-info">Share this code with friends to let them add you</p>
+            <div class="share-buttons">
+                <button class="btn btn-share whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+                <button class="btn btn-share telegram"><i class="fab fa-telegram"></i> Telegram</button>
+                <button class="btn btn-share more"><i class="fas fa-ellipsis-h"></i> More</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="tutorial-overlay" id="tutorialOverlay">
+        <div class="tutorial-content">
+            <h3>Welcome to ChatApp!</h3>
+            <p id="tutorialText">Tap on Friends to start chatting</p>
+            <div class="tutorial-buttons">
+                <button class="btn btn-secondary" id="skipTutorialBtn">Skip Tutorial</button>
+                <button class="btn btn-primary" id="nextTutorialBtn">Next</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/groups.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/tutorial.js"></script>
+</body>
+</html>
